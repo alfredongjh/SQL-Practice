@@ -1,6 +1,6 @@
 # SQL-Practice
 Practice is enacted on the following schema.
-![Database Schema](../main/ImageAssets/DatabaseEER)
+![Database Schema](../main/ImageAssets/DatabaseEER.png)
 
 
 ## Query 1
