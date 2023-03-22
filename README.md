@@ -4,27 +4,28 @@ Practice is enacted on the following schema.
 
 
 ## Query 1
-> SELECT h.consignmentId, itemNumber, h.clientId, clientName, ownerName, dateRecieved, valuationReason, valuationId, jewelleryType, description, majorMaterial, collection, dateMade, keywordDescription
-> FROM owner i
-> JOIN
->	 (SELECT g.consignmentId, g.clientId, clientName, ownerId, itemNumber, dateRecieved, valuationReason, valuationId, jewelleryType, description, majorMaterial, collection, dateMade, keywordDescription
-> 	FROM client f
-> 	JOIN
-> 		(SELECT e.consignmentId, clientId, itemNumber, dateRecieved, valuationReason, valuationId, jewelleryType, description, majorMaterial, collection, dateMade, keywordDescription
-> 		FROM consignment e
-> 		JOIN
-> 			(SELECT *
-> 			FROM consignmentitem a
-> 			JOIN keyword b
-> 			ON a.description LIKE CONCAT ('%', b.keyword, '%')
-> 			AND b.keyword = 'diamond') c
-> 		ON e.consignmentId = c.consignmentId
-> 		AND valuationId IS NULL) g
-> 	ON f.clientId = g.clientId) h
-> ON i.ownerId = h.ownerId
-> ORDER BY h.consignmentId, h.itemNumber
-> ;
-
+```
+SELECT h.consignmentId, itemNumber, h.clientId, clientName, ownerName, dateRecieved, valuationReason, valuationId, jewelleryType, description, majorMaterial, collection, dateMade, keywordDescription
+ FROM owner i
+ JOIN
+	 (SELECT g.consignmentId, g.clientId, clientName, ownerId, itemNumber, dateRecieved, valuationReason, valuationId, jewelleryType, description, majorMaterial, collection, dateMade, keywordDescription
+ 	FROM client f
+ 	JOIN
+ 		(SELECT e.consignmentId, clientId, itemNumber, dateRecieved, valuationReason, valuationId, jewelleryType, description, majorMaterial, collection, dateMade, keywordDescription
+ 		FROM consignment e
+ 		JOIN
+ 			(SELECT *
+ 			FROM consignmentitem a
+ 			JOIN keyword b
+ 			ON a.description LIKE CONCAT ('%', b.keyword, '%')
+ 			AND b.keyword = 'diamond') c
+ 		ON e.consignmentId = c.consignmentId
+ 		AND valuationId IS NULL) g
+ 	ON f.clientId = g.clientId) h
+ ON i.ownerId = h.ownerId
+ ORDER BY h.consignmentId, h.itemNumber
+ ;
+```
 In this query, I utilised multiple inner joins with nestled queries. The inner most query utilizes CONCAT and wildcards to join on a match of the item’s description and the keyword table. This query is designed to show jewellery that has the word ‘diamond’ in its description and needs valuation. Further joins and queries were added to provide more information like Client Name, ownerName, dateRecieved, valuationReason etc.  This would be important for Tsavorite Jewellery Valuers if they decide to complete a particular material’s valuation first. It also helps them identify items that require valuation.
 
 ## Query 2
