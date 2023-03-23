@@ -2,7 +2,16 @@
 Practice is enacted on the following schema.
 ![Database Schema](../main/ImageAssets/DatabaseEER.png)
 
+# Pre-requisites
+1. **Microsft SQL Server**, a relational database management system developed by Microsoft is used for Data Storage, Retrieval and data transformation.
+    - Download the SQL Server 2019 Developer version
+    - SQL Server 2019 Developer Step by step installation guide.
 
+
+2. **Microsoft SQL Server Management Studio**, a software application first launched with Microsoft SQL
+    - Download SQL Server Management Studio 18.10
+    - SQL Server Management Studio - Step by step installation guide.
+    
 ## Query 1
 ```
 SELECT h.consignmentId, itemNumber, h.clientId, clientName, ownerName, dateRecieved, valuationReason, valuationId, jewelleryType, description, majorMaterial, collection, dateMade, keywordDescription
