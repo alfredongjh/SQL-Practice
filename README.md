@@ -1,7 +1,4 @@
 # SQL-Practice
-Practice is enacted on the following schema.
-![Database Schema](../main/ImageAssets/DatabaseEER.png)
-
 # Pre-requisites
 1. **Microsft SQL Server**, a relational database management system developed by Microsoft is used for Data Storage, Retrieval and data transformation.
     - Download the SQL Server 2019 Developer version
@@ -11,6 +8,12 @@ Practice is enacted on the following schema.
 2. **Microsoft SQL Server Management Studio**, a software application first launched with Microsoft SQL
     - Download SQL Server Management Studio 18.10
     - SQL Server Management Studio - Step by step installation guide.
+
+# Database's Enhanced Entity-Relationship Diagram 
+Practice is enacted on the following schema.
+![Database Schema](../main/ImageAssets/DatabaseEER.png)
+
+
     
 ## Query 1
 ```
